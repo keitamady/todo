@@ -1,0 +1,25 @@
+.adding{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 5px;
+    margin: 2px 0;
+}
+.adding .my-text{
+    font-size: 20px;
+    display: block;
+    padding: 4px;
+    color: white;
+    background-color:black;
+    border-radius: 4px;
+}
+.adding .delete{
+    font-size: 20px;
+    display: block;
+    padding: 4px;
+    color: white;
+    background-color:red;
+    border-radius: 4px;
+}
+

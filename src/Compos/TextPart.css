@@ -1,0 +1,58 @@
+.text{
+    width: 80%;
+    padding: 2px;
+    margin: 0px auto;
+}
+.text .inputs{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+.text .inputs input{
+  width: 80%;
+  margin: 0;
+  font-size: 25px;
+  outline: none;
+  border: none;
+  text-align: center;
+  caret-color: blue;
+}
+.text .inputs span{
+    display: block;
+    font-size: 20px;
+    padding: 4px;
+    background-color: blue;
+    text-transform: capitalize;
+    border: 2px solid white;
+    margin: 0 2px 0;
+    cursor: pointer;
+    
+}
+.text .content{
+    text-align: center;
+    margin: 2px;
+    width: 90%;
+    
+}
+.text .buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+
+}
+.text .buttons span{
+
+  display: block;
+  text-transform: capitalize;
+  font-size: 18px;
+  background-color: blue;
+  color: white;
+  padding: 5px;
+  gap: 5px;
+  margin: 0 2px;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+}
