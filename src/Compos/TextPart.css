@@ -29,6 +29,23 @@
     cursor: pointer;
     
 }
+@media(max-width :751px){
+ .text .inputs{
+    display: flex;
+    flex-direction: column;
+ }
+ .text .inputs input,
+ .text .inputs span{
+    width: 90%;
+    margin: 2px auto;
+    border: none;
+    text-align: center;
+    padding: 2px 0;
+ }
+ .text .buttons{
+    margin: 0 auto;
+ }
+}
 .text .content{
     text-align: center;
     margin: 2px;
