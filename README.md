@@ -21,7 +21,7 @@ git clone git@github.com:keitamady/todo.git
 ```
 2. Go to the project folder
 ```bash
-cd three
+cd todo
 ```
 3. Install dependencies
 ```bash
