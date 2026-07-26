@@ -7,6 +7,8 @@ A simple Todo App built with React
 - delete tasks
 - view completed tasks
 - view active tasks
+- view all tasks
+- remove all tasks
 ## Technologies
 
 - React

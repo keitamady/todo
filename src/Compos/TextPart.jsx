@@ -5,6 +5,7 @@ import "./TextPart.css"
 const TextPart = () => {
     const [myText, setMytext] = useState("");
     const [myNumber, setMyNumber] = useState(0)
+    const [theFilter, setFilter] = useState("All")
     const [myArr, setMyArr] = useState([]);
     const ArrFunction = () => {
         setMyArr([...myArr,{id: myNumber,completed: false, text: myText}]);
@@ -21,14 +22,23 @@ const TextPart = () => {
            return item.id === id ? {...item,completed: !item.completed} : item
         }))
     }
-    const completeItems = () =>{
-        setMyArr(myArr.filter((fille) => {
-            return fille.completed 
-        }))
-    }
-    const activeItems = () =>{
-       setMyArr(myArr.filter((items) => !items.completed))
-    }
+    const myFilter = myArr.filter((todo) => {
+        if(theFilter === "active"){
+          return !todo.completed
+        }
+        if(theFilter === "completed"){
+          return todo.completed
+        }
+
+        return true
+    })
+  const removeAll = () => {
+    setMyArr(myArr.filter((remove) => {
+        return !remove.text
+    }))
+  }
+
+
   return (
    <div className="text">
      <div className="inputs">
@@ -37,14 +47,16 @@ const TextPart = () => {
      </div>
       <div className="content">
              {
-            myArr.map((items) =>
+            myFilter.map((items) =>
              items.text ? <AddingText key={items.id} {...items} AllF = {removeItems} togglePart = {toggleItems}/>:""     
           )
         }
       </div>
          <div className='buttons'>
-            <span onClick={() =>completeItems()} className='completed'>completed</span>
-            <span onClick={() => activeItems()} className='active'>active</span>
+            <span onClick={() => setFilter("completed")} className='completed'>completed</span>
+            <span onClick={() => setFilter("active")} className='active'>active</span>
+            <span onClick={() => setFilter("All")}> showAll </span>
+            <span onClick={() => removeAll()}> removeAll</span>
         </div> 
        
    </div>
