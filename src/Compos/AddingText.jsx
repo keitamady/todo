@@ -7,7 +7,7 @@ const AddingText = ({text,id,AllF,togglePart,completed}) => {
       {
         text ? <span className='my-text' style={{textDecoration :completed ? "line-through":"none" }} onClick={() => togglePart(id)}>{text}</span> : ""
       }
-       <span className='delete' onClick={() => AllF(id)}>delete</span>
+       <button className='delete' onClick={() => AllF(id)}>delete</button>
     </div>
   )
 }

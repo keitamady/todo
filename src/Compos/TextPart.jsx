@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AddingText from './AddingText';
 import "./TextPart.css"
 
 const TextPart = () => {
+    const myTodo = localStorage.getItem("todo")? JSON.parse(localStorage.getItem("todo")):[];
     const [myText, setMytext] = useState("");
     const [myNumber, setMyNumber] = useState(0)
     const [theFilter, setFilter] = useState("All")
-    const [myArr, setMyArr] = useState([]);
+    const [myArr, setMyArr] = useState(myTodo);
     const ArrFunction = () => {
         setMyArr([...myArr,{id: myNumber,completed: false, text: myText}]);
         setMytext("");    
@@ -37,13 +38,16 @@ const TextPart = () => {
         return !remove.text
     }))
   }
+  useEffect(()=> {
+   localStorage.setItem("todo",JSON.stringify(myFilter))
+  },[myFilter])
 
 
   return (
    <div className="text">
      <div className="inputs">
         <input onChange={(es) => setMytext(es.target.value) } value={myText} type="text" />
-        <span  style={{color:"white"}} onClick={()=> { ArrFunction() ; changeNumber()}}>add tasks </span>
+        <button  style={{color:"white"}} onClick={()=> { ArrFunction() ; changeNumber()}}>add tasks </button>
      </div>
       <div className="content">
              {
@@ -53,10 +57,10 @@ const TextPart = () => {
         }
       </div>
          <div className='buttons'>
-            <span onClick={() => setFilter("completed")} className='completed'>completed</span>
-            <span onClick={() => setFilter("active")} className='active'>active</span>
-            <span onClick={() => setFilter("All")}> showAll </span>
-            <span onClick={() => removeAll()}> removeAll</span>
+            <button onClick={() => setFilter("completed")} className='completed'>completed</button>
+            <button onClick={() => setFilter("active")} className='active'>active</button>
+            <button onClick={() => setFilter("All")}> showAll </button>
+            <button onClick={() => removeAll()}> removeAll</button>
         </div> 
        
    </div>
